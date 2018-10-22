@@ -1,1 +1,1 @@
-scrapy runspider illiad.py
+scrapy runspider illiad.py -o salida.xml -t xml
