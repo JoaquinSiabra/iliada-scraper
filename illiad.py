@@ -33,7 +33,7 @@ class BlogSpider(scrapy.Spider):
         for analisis in response.css('div.analysis'):
             trad = Trad()
             trad['lemma'] = analisis#.xpath('//div[@class="lemma"]').extract() #css('div.lemma ::text').extract_first()
-            trad['lemma_definition'] = analisis.xpath('//div[@class="lemma_definition"]').extract() #css('div.lemma_definition ::text').extract_first()
+            trad['lemma_definition'] = analisis.css('.lemma_definition::text').extract_first()#analisis.xpath('//div[@class="lemma_definition"]').extract() #css('div.lemma_definition ::text').extract_first()
             trads.append(trad)
         item['trads'] = trads  #response.css('div.analysis').extract()		
         yield item
